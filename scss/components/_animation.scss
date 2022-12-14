@@ -1,0 +1,194 @@
+:root {
+    --anim-fallback-delay: 5s;
+    --anim-default-delay: .27s;
+    --anim-default-time: .75s;
+}
+
+body:not(.hard-animation) {
+    --anim-fallback-delay: 0s;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 50%, 0);
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes appearance-shift {
+    from {
+        opacity: 0;
+        transform: scale(.2);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@mixin anim-appearance-shift($time: var(--anim-default-time), $delay: var(--anim-default-delay)) {
+    @include media('>=desktop') {
+        opacity: 0;
+        transform: scale(.2);
+
+        @for $i from 1 to 10 {
+            &:nth-child(#{$i}) {
+                animation-delay: calc(#{$i} * (#{$delay} / 2));
+            }
+        }
+
+        .is-inview &,
+        &.is-inview {
+            animation: appearance-shift $time cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+
+        // noscript/long loading fallback
+        body.is-page-loading & {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: var(--anim-fallback-delay);
+        }
+    }
+}
+
+@mixin anim-appearance-x-shift($time: var(--anim-default-time), $delay: var(--anim-default-delay)) {
+    @include media('>=desktop') {
+        opacity: 0;
+        transform: translate3d(-15%, 0, 0);
+        transition-property: transform, opacity;
+        transition-duration: $time;
+        transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        @for $i from 1 to 15 {
+            &:nth-child(#{$i}) {
+                transition-delay: calc(#{$i} * (#{$delay} / 2));
+            }
+        }
+
+        .is-inview &,
+        &.is-inview {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        // noscript/long loading fallback
+        body.is-page-loading & {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition-delay: var(--anim-fallback-delay);
+        }
+    }
+}
+
+@mixin el-fade-up($time: var(--anim-default-time), $delay: var(--anim-default-delay)) {
+    &[data-scroll],
+    [data-scroll] & {
+        opacity: 0;
+        transform: translate3d(0, 50%, 0);
+        transition: transform $time cubic-bezier(0.165, 0.84, 0.44, 1) $delay, opacity $time cubic-bezier(0.165, 0.84, 0.44, 1) $delay;
+    }
+
+    @for $i from 1 to 10 {
+        &:nth-child(#{$i}) {
+            transition-delay: calc(#{$i} * (#{$delay} / 2));
+        }
+    }
+
+    .is-inview &,
+    &.is-inview {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: transform $time cubic-bezier(0.165, 0.84, 0.44, 1) $delay, opacity $time cubic-bezier(0.165, 0.84, 0.44, 1) $delay;
+    }
+
+    // noscript/long loading fallback
+    body.is-page-loading & {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition-delay: var(--anim-fallback-delay);
+    }
+}
+
+@mixin el-fade-in($time: var(--anim-default-time), $delay: var(--anim-default-delay)) {
+    &[data-scroll],
+    [data-scroll] & {
+        opacity: 0;
+        transition: opacity $time ease $delay;
+    }
+
+    @for $i from 1 to 10 {
+        &:nth-child(#{$i}) {
+            transition-delay: calc(#{$i} * (#{$delay} - .1s));
+        }
+    }
+
+    &.is-inview,
+    .is-inview & {
+        opacity: 1;
+    }
+
+    // noscript/long loading fallback
+    body.is-page-loading & {
+        opacity: 1;
+        transition-delay: var(--anim-fallback-delay);
+    }
+}
+
+@mixin scale-up($time: var(--anim-default-time), $delay: var(--anim-default-delay)) {
+    transform: scale(1.2);
+    transition: transform $time cubic-bezier(.1,.7,.1,1.41) $delay;
+
+    @for $i from 1 to 10 {
+        &:nth-child(#{$i}) {
+            transition-delay: calc(#{$i} * (#{$delay} / 2));
+        }
+    }
+
+    &.is-inview,
+    .is-inview & {
+        transform: scale(1);
+    }
+
+    // noscript/long loading fallback
+    body.is-page-loading & {
+        transform: scale(1);
+        transition-delay: var(--anim-fallback-delay);
+    }
+}
+
+@mixin scale-in($time: var(--anim-default-time), $delay: var(--anim-default-delay)) {
+    opacity: 0;
+    transform: scale(.7);
+    transition: $time cubic-bezier(.1,.7,.1,1.41) $delay;
+
+    @for $i from 1 to 10 {
+        &:nth-child(#{$i}) {
+            transition-delay: calc(#{$i} * (#{$delay} / 2));
+        }
+    }
+
+    &.is-inview,
+    .is-inview & {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    // noscript/long loading fallback
+    body.is-page-loading & {
+        opacity: 1;
+        transform: scale(1);
+        transition-delay: var(--anim-fallback-delay);
+    }
+}

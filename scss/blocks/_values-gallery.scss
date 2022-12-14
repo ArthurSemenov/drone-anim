@@ -1,0 +1,120 @@
+.values-gallery {
+    --gallery-gap: 1.5rem;
+    --image-side-offset: -10.487vw;
+
+    padding: 4rem var(--side-gutters-md);
+
+    @include media('<tablet') {
+        overflow: hidden;
+    }
+
+    @include media('>=tablet') {
+        padding-left: var(--side-gutters-xs);
+        padding-right: var(--side-gutters-xs);
+    }
+
+    @include media('>=tablet', '<desktop') {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: calc(100% + var(--image-side-offset) * 2);
+    }
+
+    @include media('>=desktop') {
+        --gallery-gap: 2.6875rem;
+
+        padding: 9.75rem var(--side-gutters-md) 7rem;
+    }
+}
+
+.values-gallery__ttl {
+    @include adaptive-font(34, 64);
+
+    @include media('>=tablet') {
+        max-width: calc(50% - var(--gallery-gap) / 2);
+        margin-bottom: -2em;
+    }
+
+    .values-gallery:not(.is-mobile) & {
+        margin-bottom: -2em;
+
+        @include media('>=phone') {
+            max-width: calc(50% - var(--gallery-gap) / 2);
+        }
+    }
+
+    .values-gallery.is-mobile & {
+        @include media('<tablet') {
+            margin-bottom: 1.5em;
+        }
+    }
+}
+
+.values-gallery__cols {
+    /*margin-left: calc(var(--gallery-gap) / -2);
+    margin-right: calc(var(--gallery-gap) / -2);*/
+
+    .values-gallery:not(.is-mobile) & {
+        @include media('>=phone') {
+            column-count: 2;
+            column-gap: var(--gallery-gap);
+        }
+    }
+
+    @include media('>=tablet') {
+        column-count: 2;
+        column-gap: var(--gallery-gap);
+        display: block;
+        width: auto;
+        height: auto;
+    }
+}
+
+.values-gallery__col-left {
+    padding-top: 8rem;
+
+    @include media('>=tablet') {
+        padding-top: 10rem;
+    }
+}
+
+.values-image-item {
+    margin-bottom: var(--gallery-gap);
+    border-radius: 1rem;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+
+    @include media('<desktop') {
+        display: flex;
+        align-items: center;
+    }
+
+    .values-gallery__cols > &:first-child {
+        @include media('>=tablet') {
+            padding-top: 10rem;
+        }
+    }
+
+    @include media('>=desktop') {
+        border-radius: var(--brand-bd-radius);
+    }
+
+    .values-gallery__col-left &.landscape {
+        @include media('>=tablet') {
+            margin-left: var(--image-side-offset);
+        }
+    }
+
+    .values-gallery__col-right &.landscape {
+        @include media('>=tablet') {
+            margin-right: var(--image-side-offset);
+        }
+    }
+
+    img {
+        border-radius: inherit;
+        display: block;
+        width: 100%;
+    }
+}
+

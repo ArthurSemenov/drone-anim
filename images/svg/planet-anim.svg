@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80.199997 80.199997">
+  <g transform="translate(-9.9,-9.9)">
+  <circle class="globe-circle" cx="50" cy="50" r="40" fill="none" stroke="#d9d9d9" stroke-width=".1"></circle>
+  <path class="globe-line" d="M10 50 L90 50" stroke="#d9d9d9" stroke-width=".1"></path>
+  <ellipse class="globe-ellipse1" cx="50" cy="50" ry="40" rx="21" fill="none" stroke="#d9d9d9" stroke-width=".15">
+    <!--<animate attributeName="rx" repeatCount="indefinite" dur="8.333333333333334s" keyTimes="0;0.5;1" values="40;0;40" begin="0s"></animate>-->
+  </ellipse>
+  <!--<ellipse class="globe-ellipse2" cx="50" cy="50" ry="40" rx="40" fill="none" stroke="#d9d9d9" stroke-width=".15">
+    <animate attributeName="rx" repeatCount="indefinite" dur="8.333333333333334s" keyTimes="0;0.5;1" values="40;0;40" begin="-2.7750000000000004s"></animate>
+  </ellipse>-->
+  <!--<ellipse class="globe-ellipse3" cx="50" cy="50" ry="40" rx="40" fill="none" stroke="#d9d9d9" stroke-width=".15">
+    <animate attributeName="rx" repeatCount="indefinite" dur="8.333333333333334s" keyTimes="0;0.5;1" values="40;0;40" begin="-5.555833333333333s"></animate>
+  </ellipse>-->
+  </g>
+</svg>

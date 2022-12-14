@@ -1,0 +1,306 @@
+.footer {
+    &:not(.little-footer) {
+        background: $bg-footer url(../images/bg-footer.webp) no-repeat 50% -50%;
+        background-size: cover;
+        padding-top: 6.25rem;
+        margin-top: -2rem;
+
+        @include media('>=tablet') {
+            background-position: 50% 63%;
+        }
+    }
+
+    .error404 & {
+        display: none;
+    }
+}
+
+.footer__form {
+    margin: 0 auto 1rem;
+    padding-left: var(--side-gutters-md);
+    padding-right: var(--side-gutters-md);
+
+    .little-footer & {
+        max-width: 39.25rem;
+
+        @include media('>=tablet') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @include media('>=desktop') {
+        margin-bottom: 6rem;
+    }
+
+    form {
+        & > div {
+            &:first-child {
+                &:not(.hs-email) {
+                    width: 100%;
+                }
+            }
+        }
+
+        .hs-email {
+            @include media('<tablet') {
+                width: 100%;
+            }
+
+            @include media('>=tablet') {
+                flex: 1;
+                margin-top: -2rem;
+                margin-bottom: 2rem;
+                margin-right: 1rem;
+            }
+        }
+
+        .hs-submit {
+            @include media('<tablet') {
+                margin-left: auto;
+                margin-top: .6875rem;
+            }
+        }
+    }
+
+    .submitted-message {
+        @extend .body-font;
+        text-align: center;
+    }
+}
+
+.footer__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: var(--side-gutters-xs);
+    padding-right: var(--side-gutters-xs);
+
+    @include media('<tablet') {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .header__btn {
+        margin-right: 6.389vw;
+    }
+}
+
+.footer__col {
+    @include media('<tablet') {
+        &.col-info {
+            margin-bottom: 2.4rem;
+        }
+
+        &.col-links,
+        &.col-nav {
+            margin-bottom: 1.5rem;
+        }
+
+        &.col-social {
+            margin-bottom: 2.65rem;
+        }
+
+        &.footer-links {
+            margin-bottom: 3.5rem;
+        }
+    }
+
+    @include media('>=tablet') {
+        &.col-info,
+        &.col-nav {
+            margin-bottom: 4.125rem;
+        }
+
+        &.col-social,
+        &.col-links {
+            margin-bottom: 35px;
+        }
+    }
+
+    &.col-info {
+        @include media('>=tablet') {
+            max-width: 210px;
+            flex: 0 0 210px;
+        }
+    }
+
+    &.col-nav {
+        display: flex;
+
+        @include media('<phone') {
+            justify-content: space-between;
+        }
+
+        @include media('<desktop') {
+            flex-wrap: wrap;
+        }
+
+        @include media('>=desktop') {
+            justify-content: flex-end;
+            max-width: calc(100% - 210px);
+            flex-basis: calc(100% - 210px);
+            flex-shrink: 0;
+        }
+    }
+}
+
+.footer__logo {
+    display: block;
+    max-width: 6.125rem;
+    margin-bottom: 1.5625rem;
+}
+
+.footer__logo-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.footer__info-text {
+    font-family: $font-secondary;
+    font-weight: 100;
+    letter-spacing: 0;
+    max-width: 15.833em;
+}
+
+.col-nav__item {
+    @include media('<phone') {
+        max-width: 48%;
+        flex-basis: 48%;
+        flex-shrink: 0;
+    }
+
+    @include media('>=phone') {
+        max-width: 7.5rem;
+    }
+
+    @include media('>=desktop') {
+        max-width: 10vw;
+    }
+
+    @include media('<desktop') {
+        margin-bottom: 2.35rem;
+    }
+
+    &:not(:last-child) {
+        @include media('>=phone') {
+            margin-right: 1rem;
+        }
+    }
+
+    &.--alt {
+        @include media('>=tablet') {
+            max-width: 14vw;
+        }
+    }
+}
+
+.footer-nav {
+    font-size: .75rem;
+    font-family: $font-secondary;
+    letter-spacing: 0;
+    font-weight: 200;
+    line-height: 1.417;
+    text-transform: uppercase;
+}
+
+.footer-menu {
+    @include adaptive-font(20, 24);
+    font-weight: 500;
+    min-width: 130px;
+    max-width: 144px;
+    padding-right: .75rem;
+    //white-space: nowrap;
+}
+
+.footer-links {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.footer-links__item {
+    position: relative;
+
+    &:not(:last-child) {
+        margin-right: 1.250em;
+
+        &:after {
+            @include size(1px, 1em);
+            position: absolute;
+            content: '';
+            top: 2px;
+            right: -0.583em;
+            background-color: $c-font-primary;
+        }
+    }
+}
+
+.footer-links__link {
+    @extend .body-font--xs;
+    @include link-double-underline(.3s);
+    @include hover-color($c-brand-primary);
+    color: $c-font-primary;
+    font-family: $font-secondary;
+    font-weight: 200;
+    letter-spacing: 0;
+}
+
+.custom-portal {
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+
+    @include media('<desktop') {
+        margin-right: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    @include media('>=desktop') {
+        margin-right: 5.5rem;
+    }
+
+    .btn-box--bordered {
+        margin-top: .9rem;
+    }
+
+    .footer-nav__ttl {
+        margin-bottom: 0;
+    }
+}
+
+.custom-portal__ttl {
+    @include adaptive-font(20, 24);
+}
+
+.footer-nav__ttl {
+    @include adaptive-font(20, 24);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: .95rem;
+    &.has-hover {
+        cursor: pointer;
+        @include hover-color($c-brand-primary);
+    }
+}
+
+.footer__copyright {
+    font-family: $font-secondary;
+    font-weight: 100;
+    letter-spacing: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid rgba($c-font-primary, .13);
+    padding: 3rem var(--side-gutters-xs);
+
+    @include media('<desktop') {
+        padding-top: 1.7rem;
+        padding-bottom: 1.7rem;
+        text-align: left;
+        justify-content: flex-start;
+    }
+}

@@ -1,0 +1,95 @@
+body {
+    &.is-bar-visible {
+        padding-top: 62px;
+    }
+
+    @include media('height<800px') {
+        &.home.is-bar-visible {
+            overflow: visible;
+        }
+    }
+}
+
+.announcement-bar {
+    @include adaptive-font(14, 16);
+    line-height: 1;
+    font-weight: 500;
+    color: #fff;
+    margin: 8px 8px 0;
+    padding: .9375em 2.75em .9375em 1rem;
+    position: relative;
+    overflow: hidden;
+
+    @include media('>=phablet') {
+        text-align: center;
+        padding-left: 2.5em;
+        padding-right: 2.5em;
+    }
+
+    body:not(.is-bar-visible) & {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    &::before {
+        content: '';
+        background: rgba(#100E0F, .2);
+        background-image: url(../images/bg-announcement.webp);
+        background-size: cover;
+        backdrop-filter: blur(100px);
+        border-radius: 8px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    a {
+        color: $c-brand-primary;
+        font-weight: 700;
+        margin-left: 4px;
+
+        @include hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.announcement-bar__inner {
+    width: 100%;
+
+    @include media('>=phablet') {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.announcement-bar__close {
+    @extend .btn-clear;
+    position: absolute;
+    top: 0;
+    padding-right: 1.125rem;
+    padding-left: 1rem;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: .3s ease;
+    color: #959595;
+
+    .icon-cross {
+        transition: .3s ease;
+    }
+
+    @include hover {
+        color: #fff;
+
+        .icon-cross {
+            transform: rotate(90deg);
+        }
+    }
+}

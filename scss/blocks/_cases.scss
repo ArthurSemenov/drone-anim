@@ -1,0 +1,106 @@
+.banner-cases {
+    margin-top: -89px;
+    padding-bottom: 17rem;
+    z-index: 0;
+
+    @include media('>=tablet') {
+        padding-bottom: 23rem;
+    }
+
+    @include media('>=desktop') {
+        margin-top: calc(-9rem - 59px);
+        padding-bottom: 40.8%;
+    }
+
+    .main-banner__txt-holder {
+        transform: none;
+        top: auto;
+        bottom: 0;
+        left: calc(var(--side-gutters-md) + 2rem);
+
+        @include media('>=tablet') {
+            left: calc(var(--side-gutters-md));
+        }
+    }
+
+    .main-banner__img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        max-width: 77.3%;
+    }
+}
+
+.cases-listing {
+    position: relative;
+    padding: 4rem var(--side-gutters-xs) .5rem;
+}
+
+.case-item {
+    background-color: rgba(#201e1f, .6);
+    border-radius: var(--brand-bd-radius);
+    padding: 2rem;
+    margin-bottom: 1rem;
+
+    @include media('>=tablet') {
+        display: flex;
+    }
+
+    @include media('>=desktop') {
+        padding: 3.875rem;
+        padding-left: calc(var(--side-gutters-md) - var(--side-gutters-xs));
+    }
+}
+
+.case-item__title {
+    line-height: 1;
+    margin-bottom: 1.5625rem;
+}
+
+.case-item__inner {
+    @include adaptive-font(22, 34);
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1rem;
+
+    @include media('>=tablet') {
+        flex: 0 0 55%;
+        max-width: 55%;
+        padding-top: 2rem;
+    }
+
+    @include media('>=desktop') {
+        flex: 0 0 43%;
+        max-width: 43%;
+    }
+
+    p {
+        margin-bottom: 2.8125rem;
+    }
+}
+
+.case-item__img {
+    @include media('<tablet') {
+        max-width: 400px;
+        margin-top: 2.5rem;
+    }
+
+    @include media('>=tablet') {
+        flex: 0 0 40%;
+        max-width: 40%;
+        margin-left: auto;
+    }
+
+    @include media('>=desktop') {
+        flex: 0 0 52.6%;
+        max-width: 52.6%;
+    }
+
+    img {
+        border-radius: var(--brand-bd-radius);
+        width: 100%;
+    }
+}

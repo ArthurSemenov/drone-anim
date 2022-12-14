@@ -1,0 +1,353 @@
+@keyframes btnBackSlideToLeft {
+    0% {
+        transform: translate3d(200%, 0, 0);
+        opacity: 0;
+        pointer-events: none;
+    }
+    99.99% {
+        pointer-events: none;
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@keyframes jellyPulseAnim {
+    0% {
+        opacity: 0;
+        transform: scale(0.5, 0.5);
+    }
+    15.2% {
+        opacity: 1;
+        transform: scale(1.1, 1.1);
+    }
+    22.2% {
+        transform: scale(0.65, 0.65);
+    }
+    33.3% {
+        transform: scale(1, 1);
+    }
+    44.4% {
+        transform: scale(0.75, 0.75);
+    }
+    55.5% {
+        transform: scale(1, 1);
+    }
+    66.6% {
+        transform: scale(0.85, 0.85);
+    }
+    77.7% {
+        transform: scale(1, 1);
+    }
+    88.8% {
+        transform: scale(0.95, 0.95);
+    }
+    99.99% {
+        pointer-events: none;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes clickBlock {
+    0% { pointer-events: none; }
+    99.99% { pointer-events: none; }
+    100% { pointer-events: auto; }
+}
+
+@keyframes toDash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes rotate360 {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes contentStill {
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@mixin elFadeIn($time, $delay) {
+    animation-name: elFadeIn;
+    animation-duration: $time;
+    animation-timing-function: ease;
+    animation-delay: $delay;
+    animation-fill-mode: both;
+
+    @keyframes elFadeIn {
+        0% {
+            opacity: 0;
+            pointer-events: none;
+        }
+        99.99% {
+            pointer-events: none;
+        }
+        100% {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+@mixin elFadeOut($time, $delay) {
+    animation-name: elFadeOut;
+    animation-duration: $time;
+    animation-timing-function: ease;
+    animation-delay: $delay;
+    animation-fill-mode: both;
+
+    @keyframes elFadeOut {
+        0% {
+            opacity: 1;
+            pointer-events: none;
+        }
+        100% {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}
+
+@mixin textFadeInUp($time, $distance, $delay) {
+    $animation-name: unique-id() !global;
+    animation-name: $animation-name;
+    animation-duration: $time;
+    animation-timing-function: cubic-bezier(0.16, 0, 0, 1);
+    animation-delay: $delay;
+    animation-fill-mode: both;
+
+    @keyframes #{$animation-name} {
+        0% {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate3d(0, $distance, 0);
+        }
+        10% {
+            opacity: 0.25;
+        }
+        99.99% {
+            pointer-events: none;
+        }
+        100% {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+@mixin textFadeAway($time, $distance, $delay) {
+    $animation-name: unique-id() !global;
+    animation-name: $animation-name;
+    animation-duration: $time;
+    animation-timing-function: cubic-bezier(0.36, 0.1, 0, 1);
+    animation-delay: $delay;
+    animation-fill-mode: both;
+
+    @keyframes #{$animation-name} {
+        0% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+        100% {
+            opacity: 0;
+            transform: translate3d(0, $distance, 0);
+        }
+    }
+}
+
+@mixin textAway($time, $distance, $delay) {
+    animation-name: textAwayAnim;
+    animation-duration: $time;
+    animation-timing-function: cubic-bezier(0.36, 0.1, 0, 1);
+    animation-delay: $delay;
+    animation-fill-mode: both;
+
+    @keyframes textAwayAnim {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(0, $distance, 0); }
+    }
+}
+
+@mixin contentSlideIn($time, $tY, $delay) {
+    animation-name: contentSlideIn;
+    animation-duration: $time;
+    animation-timing-function: cubic-bezier(0.36, 0.1, 0, 1);
+    animation-delay: $delay;
+    animation-fill-mode: both;
+    @keyframes contentSlideIn {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, $tY, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+@mixin contentSlideAway($time, $delay) {
+    animation-name: contentSlideAway;
+    animation-duration: $time;
+    animation-timing-function: cubic-bezier(0.36, 0.1, 0, 1);
+    animation-delay: $delay;
+    animation-fill-mode: both;
+    @keyframes contentSlideAway {
+        to {
+            transform: translate3d(0, -100vh, 0);
+        }
+    }
+}
+
+@mixin symbolFadeInUp($time, $distance, $delay) {
+    $animation-name: unique-id() !global;
+    animation-name: $animation-name;
+    animation-duration: $time;
+    animation-timing-function: cubic-bezier(0.06, 0, 0, 1);
+    animation-delay: $delay;
+    animation-fill-mode: both;
+
+    @keyframes #{$animation-name} {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, $distance, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+@mixin symbolFadeAway($time, $distance, $delay) {
+    $animation-name: unique-id() !global;
+    animation-name: $animation-name;
+    animation-duration: $time;
+    animation-timing-function: cubic-bezier(0.36, 0.1, 0, 1);
+    animation-delay: $delay;
+    animation-fill-mode: both;
+
+    @keyframes #{$animation-name} {
+        0% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+        30% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+            transform: translate3d(0, $distance, 0);
+        }
+    }
+}
+
+@mixin specCardFromRight($time, $rX, $rZ, $tX, $tY, $delay) {
+    $animation-name: unique-id() !global;
+    animation-name: $animation-name;
+    animation-duration: $time;
+    animation-timing-function: cubic-bezier(0.16, 0, 0, 1);
+    animation-delay: $delay;
+    animation-fill-mode: both;
+
+    @keyframes #{$animation-name} {
+        0% {
+            opacity: 0;
+            transform: rotateX($rX) rotateZ($rZ) translate3d($tX, $tY, 0);
+        }
+        30% {
+            opacity: 0.2;
+        }
+        85% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+            transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) translate3d(0, 0, 0);
+        }
+    }
+}
+
+@mixin transmitterSpecCardAway($time, $tX, $tY, $r, $delay) {
+    $animation-name: unique-id() !global;
+    animation-name: $animation-name;
+    animation-duration: $time;
+    animation-timing-function: linear;
+    animation-delay: $delay;
+    animation-fill-mode: both;
+
+    @keyframes #{$animation-name} {
+        0% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) rotate(0deg);
+        }
+        30% {
+            opacity: 0.35;
+        }
+        100% {
+            opacity: 0;
+            transform: translate3d($tX, $tY, 0) rotate($r);
+        }
+    }
+}
+
+@mixin blinking($step1, $step2, $value1, $value2, $delay) {
+    $animation-name: unique-id() !global;
+    animation-name: $animation-name;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.37, 0, 0.43, 1);
+    animation-delay: $delay;
+    animation-fill-mode: forwards;
+
+    @keyframes #{$animation-name} {
+        0% { opacity: 0; }
+        #{$step1 + '%'} { opacity: $value1; }
+        #{$step2 + '%'} { opacity: $value2; }
+        100% { opacity: 1; }
+    }
+}
+
+@mixin blinkingDouble($step1, $step2, $step3, $step4, $value1, $value2, $value3, $value4, $delay) {
+    $animation-name: unique-id() !global;
+    animation-name: $animation-name;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.37, 0, 0.43, 1);
+    animation-delay: $delay;
+    animation-fill-mode: forwards;
+
+    @keyframes #{$animation-name} {
+        0% { opacity: 0; }
+        #{$step1 + '%'} { opacity: $value1; }
+        #{$step2 + '%'} { opacity: $value2; }
+        #{$step3 + '%'} { opacity: $value3; }
+        #{$step4 + '%'} { opacity: $value4; }
+        100% { opacity: 1; }
+    }
+}
+
+@mixin text-inview($y, $time) {
+    transform: translate3d(0, $y, 0);
+    transition: transform $time cubic-bezier(0.36, 0.1, 0, 1), opacity .5s ease;
+    &.is-inview {
+        transform: translate3d(0, 0, 0);
+        transition: transform $time cubic-bezier(0.36, 0.1, 0, 1), opacity .5s ease;
+    }
+}
+
+@mixin img-inview($scale, $time) {
+    transform: scale($scale);
+    transition: transform $time cubic-bezier(0.36, 0.1, 0, 1);
+    &.is-inview {
+        transform: scale(1);
+        transition: transform $time cubic-bezier(0.36, 0.1, 0, 1);
+    }
+}

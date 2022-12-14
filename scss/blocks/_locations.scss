@@ -1,0 +1,185 @@
+.locations {
+    --address-width: 15.625rem;
+
+    background-color: $bg-footer;
+    padding-right: var(--side-gutters-md);
+    padding-left: var(--side-gutters-xs);
+    padding-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    @include media('>=desktop') {
+        display: flex;
+        padding-top: 8rem;
+    }
+
+    @include media('>=widescreen') {
+        padding-top: 15rem;
+    }
+}
+
+.locations__col-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @include media('<desktop') {
+        margin-bottom: 1.5rem;
+    }
+
+    @include media('>=desktop') {
+        max-width: calc(100% - 18.5% - 21vw);
+        flex-basis: calc(100% - 18.5% - 21vw);
+        flex-shrink: 0;
+    }
+}
+
+.locations__col-right {
+    min-width: 16.25rem;
+
+    @include media('<desktop') {
+        width: 16.25rem;
+        margin-left: auto;
+    }
+
+    @include media('<phablet') {
+        width: 20.8rem;
+    }
+
+    @include media('>=desktop') {
+        margin-left: 7.7rem;
+        margin-top: -.5rem;
+        width: 20.9375rem;
+    }
+
+    @include media('>=widescreen') { margin-left: 9.1rem; }
+    @include media('>=largescreen') { margin-left: 11.6rem; }
+    @include media('>=hdscreen') { margin-left: 14.375rem; }
+}
+
+.locations__ttl {
+    @include adaptive-font(20, 34);
+    font-weight: 500;
+    margin-bottom: .6rem;
+
+    @include media('>=desktop') {
+        text-align: right;
+        margin-bottom: 1.9rem;
+    }
+}
+
+.locations__head-txt {
+    @include adaptive-font(20, 24);
+    margin-bottom: 15.5rem;
+    padding-right: 1rem;
+
+    @include media('>=tablet') {
+        margin-bottom: 4.7rem;
+    }
+}
+
+.locations__city {
+    display: block;
+    @include adaptive-font(58, 124);
+    text-transform: uppercase;
+    max-width: 5.15em;
+    margin-right: -1rem;
+}
+
+.locations__addresses {
+    background-color: rgba($c-bg-secondary, .25);
+    backdrop-filter: blur(4px);
+    border-radius: var(--brand-bd-radius-xl);
+    padding: 1rem 1.5rem;
+
+    @include media('>=desktop') {
+        padding: 3.5625rem 1.875rem;
+    }
+
+    > p {
+        @extend .locations__address;
+    }
+}
+
+.locations__address {
+    @include adaptive-font(18, 32);
+    text-align: right;
+    font-style: normal;
+    display: block;
+
+    @include media('>=desktop') {
+        max-width: 100%;
+    }
+
+    &:not(:first-child) {
+        &:before {
+            content: '';
+            display: block;
+            margin-left: auto;
+            margin-top: 1.625rem;
+            margin-bottom: 1.625rem;
+            width: 21px;
+            height: 1px;
+            background-color: currentColor;
+
+            @include media('>=desktop') {
+                margin-top: 2.625rem;
+                margin-bottom: 2.625rem;
+            }
+        }
+    }
+}
+
+.locations__btn-cta {
+    margin-top: 2.5rem;
+
+    @include media('<desktop') {
+        text-align: center;
+    }
+
+    @include media('>=desktop') {
+        margin-top: 4.35rem;
+    }
+}
+
+.locations__map {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 2rem;
+    z-index: -1;
+    &:before {
+        @extend .abs-full;
+        content: '';
+        max-height: calc(693px + 4rem);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(16, 14, 15, 0) 0%, #100E0F 100%);
+    }
+
+    @include media('<desktop') {
+        top: 5rem;
+        left: 0;
+        width: 100%;
+    }
+
+    img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $c-bg-primary;
+
+        @include media('<desktop') {
+            min-width: 60rem;
+        }
+
+        @include media('>=widescreen') {
+            top: 4rem;
+        }
+    }
+}

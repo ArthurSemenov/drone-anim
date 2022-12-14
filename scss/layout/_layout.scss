@@ -1,0 +1,134 @@
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba($c-bg-secondary, .25);
+}
+
+html {
+    &.has-scroll-smooth {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+
+        body {
+            max-height: 100vh;
+        }
+
+        .c-scrollbar {
+            z-index: 10;
+        }
+
+        .c-scrollbar_thumb {
+            background-color: $c-bg-secondary;
+            opacity: 0.25;
+        }
+    }
+}
+
+body {
+    background-color: $c-bg-primary;
+    overflow-x: hidden;
+
+    &.is-modal-open {
+        overflow: hidden;
+        max-height: 100vh;
+    }
+}
+
+.page-wrap {
+    /*position: relative;
+    z-index: 1;
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: $c-bg-primary;*/
+    overflow-x: hidden;
+    .home & {
+        overflow: hidden;
+    }
+}
+
+.page-content {
+    flex: 1;
+    max-width: 100%;
+}
+
+.block-width--m {
+    width: 100%;
+
+    @include media('>=tablet') {
+        width: 74.51%;
+        max-width: 74.51%;
+        margin-left: var(--side-gutters-xs);
+    }
+
+    @include media('>=desktop') { margin: 0 auto; }
+}
+
+.img-cover {
+    @include size(100%, 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.img-cover-abs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include size(100%, 100%);
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.abs-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include size(100%, 100%)
+}
+
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.col-start {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.block-rounded {
+    border-radius: 35px;
+    overflow: hidden;
+}
+
+.bg-highlight {
+    background-image: url(../images/bg-highlight.webp);
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}

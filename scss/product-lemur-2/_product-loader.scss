@@ -1,0 +1,87 @@
+.product-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include size(100%, 100vh);
+    background-color: #000;
+    z-index: 9999999;
+    padding: 5vh 0;
+    &.loaded {
+        filter: blur(12px);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transition: opacity 1s cubic-bezier(0.36, 0.1, 0, 1) .5s,
+                    visibility 1s cubic-bezier(0.36, 0.1, 0, 1) .5s,
+                    filter 1s cubic-bezier(0.36, 0.1, 0, 1) .5s;
+    }
+
+    &__logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        max-width: 90%;
+        height: auto;
+    }
+
+    &__counter {
+        position: relative;
+        @include size(16rem, 10.75rem);
+        overflow: hidden;
+        perspective: 300px;
+        transform-style: preserve-3d;
+        margin-top: auto;
+        &.loaded {
+            perspective: none;
+
+            .loader__counter-inner {
+                transform: none;
+            }
+        }
+    }
+
+    &__counter-inner {
+        position: relative;
+        @include size(100%, 100%);
+        transform: rotateX(-6deg);
+        &:before,
+        &:after {
+            position: absolute;
+            content: '';
+            top: -3%;
+            left: 0;
+            @include size(100%, 50%);
+            background: linear-gradient(180deg, #000 0%, rgba(#000, 0.72) 57.41%, rgba(#000, 0) 100%);
+            z-index: 1;
+        }
+        &:after {
+            top: auto;
+            bottom: -3%;
+            background: linear-gradient(0deg, #000 0%, rgba(#000, 0.72) 57.41%, rgba(#000   , 0) 100%);
+        }
+    }
+
+    &__counter-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        @include size(100%, auto);
+        transform: translate3d(0, 10%, 0);
+        transition: transform .5s cubic-bezier(0.36, 0.1, 0, 1);
+    }
+
+    &__counter-item {
+        font-weight: 700;
+        font-size: 4rem;
+        letter-spacing: -0.03em;
+        &.empty {
+            opacity: 0;
+        }
+    }
+}

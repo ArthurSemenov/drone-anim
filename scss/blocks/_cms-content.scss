@@ -1,0 +1,32 @@
+.cta-full-article {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+
+    @include media('<tablet') {
+        padding-left: var(--side-gutters-xs);
+        padding-right: var(--side-gutters-xs);
+    }
+
+    @include media('>=largescreen') {
+        margin-bottom: 6.875rem;
+    }
+}
+
+.cta-full-article__link {
+    @extend .btn-primary;
+    @include adaptive-font(18, 20);
+    font-weight: 500;
+    color: $c-font-primary;
+    justify-content: center;
+
+    .icon-anchor {
+        @include adaptive-font(26, 26);
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+        margin-left: 2.2rem;
+    }
+}
+
+

@@ -1,0 +1,76 @@
+.challenges {
+    padding-left: var(--side-gutters-md);
+    padding-right: var(--side-gutters-md);
+    padding-top: 10vh;
+
+    @include media('>=desktop') {
+        padding-top: 20.3vh;
+    }
+
+    & + .about-item {
+        padding-top: 7.1rem;
+    }
+}
+
+.challenges__ttl {
+    @include el-fade-up;
+    @include adaptive-font(34, 64);
+    margin-bottom: 5rem;
+}
+
+.challenges__txt {
+    @include el-fade-up;
+    @include adaptive-font(20, 34);
+    margin-bottom: 5.625rem;
+    max-width: 39.8125rem;
+}
+
+.challenges__list {
+    --challenges-offset: 1.5rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 45.4rem;
+    margin-left: calc(var(--challenges-offset) / -2);
+    margin-right: calc(var(--challenges-offset) / -2);
+
+    @include media('>=tablet') {
+        padding-left: 1rem;
+    }
+
+    .challenges-item {
+        flex-basis: calc(100% - var(--challenges-offset));
+        max-width: calc(100% - var(--challenges-offset));
+        margin-left: calc(var(--challenges-offset) / 2);
+        margin-right: calc(var(--challenges-offset) / 2);
+        margin-bottom: 1.25rem;
+
+        @include media('>=phablet') {
+            flex-basis: calc(50% - var(--challenges-offset));
+            max-width: calc(50% - var(--challenges-offset));
+        }
+    }
+}
+
+.challenges-item {
+    @include el-fade-in;
+    display: flex;
+    align-items: flex-start;
+}
+
+.challenges-item__icon {
+    font-size: 33px;
+    margin-right: .875rem;
+}
+
+.challenges-item__ttl {
+    @include adaptive-font(20, 34);
+    flex-basis: calc(100% - 33px - .875rem);
+    max-width: calc(100% - 33px - .875rem);
+    border: $c-border;
+    backdrop-filter: blur(.75rem);
+    border-radius: .75rem;
+    min-height: 6.75rem;
+    height: 100%;
+    padding: 1.125rem .75rem 1.125rem 1.625rem;
+}

@@ -1,0 +1,89 @@
+.culture {
+    padding: 4rem var(--side-gutters-md);
+    overflow: hidden;
+
+    @include media('>=desktop') {
+        padding-top: 9rem;
+        padding-bottom: 9.5rem;
+    }
+
+    @include media('>=widescreen') {
+        padding-right: var(--side-gutters-md);
+        padding-left: var(--side-gutters-md);
+    }
+}
+
+.culture__head {
+    @include el-fade-up;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7.0625rem;
+}
+
+.culture__ttl {
+    margin-bottom: 0;
+}
+
+.culture-items {
+    --culture-offset: 1.5rem;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &:not(.swiper-initialized) {
+        margin-left: calc(var(--culture-offset) / -2);
+        margin-right: calc(var(--culture-offset) / -2);
+
+        .swiper-wrapper {
+            flex-wrap: wrap;
+        }
+
+        .culture-item {
+            margin-left: calc(var(--culture-offset) / 2);
+            margin-right: calc(var(--culture-offset) / 2);
+            margin-bottom: var(--culture-offset);
+
+            @include media('>=phone') {
+                flex-basis: calc(50% - var(--culture-offset));
+                max-width: calc(50% - var(--culture-offset));
+            }
+
+            @include media('>=desktop') {
+                flex-basis: calc(33.33% - var(--culture-offset));
+                max-width: calc(33.33% - var(--culture-offset));
+            }
+        }
+    }
+}
+
+.culture-item {
+    @include anim-appearance-x-shift;
+    background-color: rgba($c-bg-secondary, .25);
+    backdrop-filter: blur(20px);
+    border-radius: var(--brand-bd-radius-xl);
+    padding: 1.625rem 1.375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
+    height: 15rem;
+
+    @include media('>=desktop') {
+        height: 19.875rem;
+    }
+}
+
+.culture-item__icon {
+    @include adaptive-font(40, 52);
+    max-width: 1em;
+    margin-bottom: 1rem;
+}
+
+.culture-item__ttl {
+    @include adaptive-font(24, 32);
+    min-height: 2em;
+    margin-top: auto;
+}

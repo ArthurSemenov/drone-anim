@@ -1,0 +1,22 @@
+.videos {
+    @include media('<desktop') {
+        padding-top: 3rem;
+    }
+}
+
+.videos-list {
+    .recent-press-item {
+        margin-bottom: 13px;
+    }
+
+    .recent-press-item__img {
+        max-width: 47%;
+        flex-basis: 47%;
+        margin-right: .75rem;
+    }
+}
+
+.video-list__ttl {
+    @include adaptive-font(22, 26);
+    margin-bottom: 1.5rem;
+}

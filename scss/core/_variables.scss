@@ -1,0 +1,51 @@
+@import "media-queries-var";
+
+:root {
+    // Side gutters
+    --side-gutters-xs:  15px;
+    --side-gutters-sm:  15px;
+    --side-gutters-md:  15px;
+    --side-product:     15px;
+    --side-gutters:     15px;
+
+    @include media('>=tablet') {
+        --side-gutters-xs: 2.431%;
+        --side-gutters-sm: 9%;
+        --side-gutters-md: 7%;
+        --side-product:    4.84%;
+        --side-gutters:    12.71%;
+    }
+
+    @include media('>=desktop') {
+        --side-gutters-md: 17vw;
+    }
+
+    --modal-height: 100vh;
+
+    // animation
+    --hero-anim-delay: 1s;
+    --default-transition-time: .27s;
+    --default-transition: var(--default-transition-time) ease;
+
+    --brand-bd-radius: 1.875rem;
+    --brand-bd-radius-xl: 2.1875rem;
+}
+
+// Brand
+$c-brand-primary: #00d2ff;
+
+// background
+$c-bg-primary: #100e0f;
+$c-bg-secondary: #d9d9d9;
+$c-bg-quaternary: #3a3a3a;
+
+// fonts
+$c-font-primary: #d9d9d9;
+$c-font-secondary: #fff;
+$c-font-tertiary: #100e0f;
+$c-font-quaternary: #3a3a3a;
+
+$bg-footer: #090909;
+
+// border
+$c-border: 1px solid rgba(#eae6e3, .17);

@@ -1,0 +1,203 @@
+.btn-clear {
+    font-family: inherit;
+    font-weight: inherit;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    padding: 0;
+    appearance: none;
+}
+
+.btn-primary {
+    @include adaptive-font(16, 20);
+    @extend .btn-clear;
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 9.400em;
+    color: $c-font-primary;
+    background-color: rgba($c-bg-secondary, 0.15);
+    backdrop-filter: blur(12.5253px);
+    border-radius: 0.600em;
+    padding: 1.05rem 2.75rem 1.05rem 1.5em;
+    transition: background-color var(--default-transition), color var(--default-transition);
+    min-height: 3.125rem;
+    position: relative;
+
+    @include media('>=desktop') {
+        min-height: 3.875rem;
+    }
+
+    @include hover {
+        background-color: rgba($c-bg-secondary, 0.3);
+        color: $c-brand-primary;
+        transition: background-color var(--default-transition), color var(--default-transition);
+    }
+
+    &.--dark {
+        background-color: $c-bg-primary;
+
+        @include hover {
+            color: $c-bg-primary;
+            background-color: $c-brand-primary;
+        }
+    }
+
+    &.--inky {
+        background-color: $c-bg-quaternary;
+
+        @include hover {
+            background-color: $c-bg-quaternary;
+            color: $c-brand-primary;
+            transition: background-color var(--default-transition), color var(--default-transition);
+        }
+    }
+}
+
+.btn-primary__icon {
+    @include adaptive-font(8, 8);
+    width: 1em;
+    height: 1em;
+    flex-basis: 1em;
+    position: absolute;
+    top: 50%;
+    right: 1.25rem;
+    transform: translateY(-50%);
+    fill: currentColor;
+    margin-left: 1em;
+    transition: fill .27s ease;
+}
+
+.btn-back {
+    @extend .btn-primary;
+    padding-left: 1.3125rem;
+    min-width: 11.75rem;
+    justify-content: flex-start;
+    align-items: center;
+
+    .btn-back__icon {
+        @extend .btn-primary__icon;
+        transform: none;
+        position: static;
+        margin-left: 0;
+        margin-right: 1.6875rem;
+    }
+}
+
+.btn-more {
+    @extend .btn-clear;
+    @include size(4.0625rem, 4.0625rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: $c-border;
+    border-radius: 10px;
+    backdrop-filter: blur(14px);
+    transition: border var(--default-transition);
+
+    &__icon {
+        fill: $c-font-secondary;
+        @include size(1.25rem, 1.25rem);
+        transition: fill var(--default-transition);
+    }
+
+    @include hover {
+        border: 1px solid $c-brand-primary;
+        transition: border var(--default-transition);
+
+        .btn-more__icon {
+            fill: $c-brand-primary;
+            transition: fill var(--default-transition);
+        }
+    }
+}
+
+.btn-load-more {
+    min-width: 9.4em;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: center;
+}
+
+.btn-box,
+.btn-prev,
+.btn-next {
+    @extend .btn-clear;
+    @include size(23px, 23px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+    background-color: rgba($c-bg-secondary, .15);
+    backdrop-filter: blur(12.5253px);
+    border-radius: 8px;
+    transition: background-color var(--default-transition), color var(--default-transition);
+    color: $c-bg-secondary;
+
+    @include media('>=desktop') { @include size(1.75rem, 1.75rem); }
+
+    @include hover {
+        background-color: rgba($c-bg-secondary, 0.3);
+        color: $c-brand-primary;
+    }
+
+    &--big {
+        @include size(2.625rem, 2.625rem);
+
+        @include media('>=desktop') {
+            @include size(3.875rem, 3.875rem);
+            border-radius: 12px;
+        }
+    }
+
+    &__icon {
+        @include adaptive-font(6);
+        width: 1em;
+        height: 1em;
+        flex-basis: 1em;
+        fill: currentColor;
+    }
+}
+
+.btn-box--bordered {
+    @include adaptive-font(12, 12);
+    background-color: transparent;
+    font-family: $font-secondary;
+    font-weight: 100;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    border: $c-border;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: .72rem .7rem .64rem;
+    transition: background-color var(--default-transition), color var(--default-transition);
+
+    &.swiper-button-disabled {
+        pointer-events: none;
+        opacity: .5;
+    }
+
+    .icon-account {
+        @include adaptive-font(28, 28);
+    }
+
+    .icon-circle {
+        @include adaptive-font(9, 9);
+        margin-right: 10px;
+    }
+
+    @include hover {
+        background-color: rgba($c-bg-secondary, 0.3);
+        color: $c-brand-primary;
+    }
+}
+
+.btn-transparent {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}

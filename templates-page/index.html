@@ -1,0 +1,40 @@
+@@include('../templates-parts/head.html')
+
+<div class="page-wrap">
+    @@include('../templates-parts/header.html')
+    @@include('../templates-parts/loader.html')
+
+    <section class="product-canvas" id="product-canvas">
+        <div class="product-canvas__inner">
+            <canvas class="product-canvas__item active" id="canvas-intro-screen"></canvas>
+            <canvas class="product-canvas__item" id="canvas-away-screen"></canvas>
+        </div>
+    </section>
+
+    <section class="product-screen intro-screen js-content-screen" data-content="intro-screen">
+        <span class="product-content__btn-scroll">
+            <span class="product-content__btn-scroll-inner">
+                <span class="product-content__btn-scroll-title">Scroll<br>to Explore</span>
+            </span>
+        </span>
+
+        <h1 class="product-page__title page-title lemurs">
+            <span class="product-page__title-symbol">D</span>
+            <span class="product-page__title-symbol">R</span>
+            <span class="product-page__title-symbol">O</span>
+            <span class="product-page__title-symbol">N</span>
+            <span class="product-page__title-symbol">E</span>
+            <span class="product-page__title-symbol highlighted lemurs">2</span>
+        </h1>
+    </section>
+
+    <div class="product-fullpage-scroll" id="fullpage">
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+    </div>
+
+    @@include('../templates-parts/scroll-part.html')
+</div>
+
+@@include('../templates-parts/footer.html')

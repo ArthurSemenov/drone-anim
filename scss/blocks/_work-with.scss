@@ -1,0 +1,60 @@
+.work-with {
+    padding-left: var(--side-gutters-sm);
+    padding-right: var(--side-gutters-sm);
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+
+    @include media('>=widescreen') {
+        display: flex;
+        align-items: center;
+        margin-top: 8.1rem;
+        margin-bottom: 8rem;
+    }
+}
+
+.work-with__ttl {
+    @include adaptive-font(18, 20);
+    margin-right: 1rem;
+
+    @include media('>=widescreen') {
+        margin-bottom: 0;
+    }
+}
+
+.work-with__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+
+    @include media('<phone') {
+        justify-content: space-between;
+    }
+}
+
+.work-with__list-item {
+    @include anim-appearance-x-shift;
+
+    @include media('<widescreen') {
+        margin-bottom: 2rem;
+    }
+
+    @include media('<phone') {
+        max-width: 48%;
+        flex: 0 0 48%;
+    }
+
+    &:not(:last-child) {
+        @include media('>=phone', '<largescreen') {
+            margin-right: 2rem;
+        }
+
+        @include media('>=largescreen') {
+            margin-right: 5.556vw;
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+}

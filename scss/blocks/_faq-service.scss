@@ -1,0 +1,83 @@
+.faq-service {
+    padding-left: var(--side-gutters-sm);
+    padding-right: var(--side-gutters-sm);
+    padding-bottom: 4rem;
+}
+
+.faq-service__ttl {
+    margin-bottom: 3rem;
+}
+
+.faq-service__items {
+    --faq-item-offset: 2.25rem;
+
+    @include media('>=phablet') {
+        margin-left: calc(var(--faq-item-offset) / -2);
+        margin-right: calc(var(--faq-item-offset) / -2);
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.faq-service-item {
+    @include adaptive-font(18, 20);
+    margin-bottom: 1.25rem;
+
+    @include media('>=phablet') {
+        margin-left: calc(var(--faq-item-offset) / 2);
+        margin-right: calc(var(--faq-item-offset) / 2);
+        margin-bottom: 2.25rem;
+        max-width: calc(50% - var(--faq-item-offset));
+        flex-basis: calc(50% - var(--faq-item-offset));
+    }
+
+    @include media('>=desktop') {
+        @include el-fade-in;
+    }
+
+    &:not(:last-child):not(:nth-last-child(2)) {
+        position: relative;
+        padding-bottom: 4.875rem;
+
+        @include media('>=phablet') {
+            padding-bottom: 8.875rem;
+        }
+
+        &:after,
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            height: 3rem;
+            transform: skew(0deg);
+            transition: transform var(--anim-default-time) ease var(--anim-default-delay);
+
+            @include media('>=phablet') {
+                height: 6.625rem;
+            }
+
+            .is-inview & {
+                transform: skew(-45deg);
+            }
+        }
+
+        &:after {
+            left: 3rem;
+            width: 2.375rem;
+            border: solid rgba($c-font-secondary, .3);
+            border-width: 0 1px;
+        }
+
+        &:before {
+            left: calc(3rem + 2.375rem * 2);
+            width: 1px;
+            background-color: rgba($c-font-secondary, .3);
+        }
+    }
+}
+
+.faq-service-item__ttl {
+    @include adaptive-font(20, 34);
+    margin-bottom: 1.5rem;
+    min-height: 3em;
+}

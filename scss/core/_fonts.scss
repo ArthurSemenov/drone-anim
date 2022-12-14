@@ -1,0 +1,47 @@
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $src: null;
+
+    $extmods: (
+        eot: "?",
+        svg: "#" + str-replace($name, " ", "_")
+    );
+
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype"
+    );
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+        font-display: swap;
+    }
+}
+
+$font-primary: Manrope, Helvetica, Arial, sans-serif;
+$font-secondary: Manrope, Helvetica, Arial, sans-serif;
+//$font-secondary: Navigo, Helvetica, Arial, sans-serif;
+//$font-tertiary: Abhayalibre, Times, serif;
+
+//$main-font-path: '/wp-content/themes/bdrones/assets/fonts';
+$main-font-path: '../fonts';
+
+@include font-face('Manrope', '#{$main-font-path}/Manrope/Manrope-Thin', 200, normal, woff2);
+@include font-face('Manrope', '#{$main-font-path}/Manrope/Manrope-Regular', 400, normal, woff2);
+@include font-face('Manrope', '#{$main-font-path}/Manrope/Manrope-Medium', 500, normal, woff2);
+@include font-face('Manrope', '#{$main-font-path}/Manrope/Manrope-Bold', 700, normal, woff2);
+@include font-face('Manrope', '#{$main-font-path}/Manrope/Manrope-ExtraBold', 800, normal, woff2);
+@include font-face('Navigo', '#{$main-font-path}/Navigo/Navigo-ExtraLight', 200, normal, woff2);
+//@include font-face('Abhayalibre', '#{$main-font-path}/Abhayalibre/abhayalibre-regular', 400, normal, woff woff2);

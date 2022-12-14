@@ -1,0 +1,38 @@
+.link-slash {
+    @include adaptive-font(12, 12);
+    color: currentColor;
+    display: inline-flex;
+    font-family: $font-secondary;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    transition: var(--default-transition);
+
+    @include hover {
+        color: $c-brand-primary;
+    }
+
+    &:before {
+        content: '/';
+        margin-right: 1.25rem;
+    }
+
+    &:after {
+        content: '/';
+        margin-left: 1.25rem;
+        text-decoration: none;
+    }
+
+    &.--underline span {
+        @include link-double-underline;
+    }
+}
+
+.link-cta {
+    @include adaptive-font(34, 64);
+    transition: var(--default-transition);
+
+    @include hover {
+        color: $c-brand-primary;
+    }
+}

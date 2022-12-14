@@ -1,0 +1,81 @@
+.career-rqmt {
+    padding-left: var(--side-gutters-sm);
+    padding-right: var(--side-gutters-sm);
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+        background: url(../images/circle-overlay.webp) no-repeat;
+        background-size: cover;
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 50vw;
+        height: 50vw;
+        max-width: 1436px;
+        max-height: 1436px;
+        transform: translate(-50%, -50%);
+        filter: blur(350px);
+        border-radius: 50%;
+    }
+}
+
+.career-rqmt__box {
+    border: $c-border;
+    border-radius: var(--brand-bd-radius-xl);
+    margin-bottom: 4rem;
+    width: 100%;
+    max-width: 51.25rem;
+    padding: 3.125rem 10vw 5rem;
+
+    transition: 1.5s cubic-bezier(.1,.7,.1,1.41) .3s;
+    transform: translateX(50%);
+    opacity: 0;
+
+    @include media('>=phablet') {
+        padding-left: 7.5rem;
+        padding-right: 7.5rem;
+    }
+
+    &:nth-child(2n) {
+        margin-left: auto;
+        transform: translateX(-50%);
+    }
+
+    &.is-inview {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.career-rqmt__ttl {
+    @include adaptive-font(34, 64);
+    margin-bottom: 3.3125rem;
+
+    span {
+        @extend .career-rqmt__ttl-mark;
+    }
+}
+
+.career-rqmt__ttl-mark {
+    background-color: transparent;
+    color: $c-brand-primary;
+}
+
+.career-rqmt__list {
+    @include adaptive-font(20, 34);
+    list-style: none;
+
+    li {
+        position: relative;
+        padding-left: 1.5rem;
+
+        &:before {
+            content: '–';
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}

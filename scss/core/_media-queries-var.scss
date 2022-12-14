@@ -1,0 +1,46 @@
+    // Media Queries
+$screen-min:              320px !default;
+
+$desktop-hover:           1025px;
+$desktop-animation:       1025px;
+
+$screen-xs:               480px !default;
+$screen-xs-min:           $screen-xs !default;
+$screen-phone:            $screen-xs-min !default;
+
+$screen-ph:               600px !default;
+
+$screen-sm:               768px !default;
+$screen-sm-min:           $screen-sm !default;
+$screen-tablet:           $screen-sm-min !default;
+
+$screen-md:               1024px !default;
+$screen-md-min:           $screen-md !default;
+$screen-desktop:          $screen-md-min !default;
+
+$screen-lg:               1280px !default;
+$screen-lg-min:           $screen-lg !default;
+$screen-lg-desktop:       $screen-lg-min !default;
+
+$screen-xl:               1440px !default;
+$screen-xxl:              1920px;
+$screen-xxxl:             2100px;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:           ($screen-sm-min - 1) !default;
+$screen-sm-max:           ($screen-md-min - 1) !default;
+$screen-md-max:           ($screen-lg-min - 1) !default;
+
+// Media queries breakpoints
+$breakpoints: (
+    'phone': $screen-xs,
+    'phablet': $screen-ph,
+    'tablet': $screen-sm,
+    'desktop': $screen-md,
+    'widescreen': $screen-lg,
+    'largescreen': $screen-xl,
+    'hdscreen' : $screen-xxl,
+    '2kscreen' : $screen-xxxl,
+    'desktop-anim': $desktop-animation,
+    'desktop-hover': $desktop-hover
+);

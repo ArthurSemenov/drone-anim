@@ -1,0 +1,173 @@
+.download {
+    @include adaptive-font(22, 34);
+    font-weight: 500;
+    background-color: $c-bg-secondary;
+    color: $c-font-tertiary;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1.7rem 2rem 3.1rem;
+    border-radius: var(--brand-bd-radius-xl);
+    position: relative;
+    transition: var(--default-transition);
+
+    @include media('>=largescreen') {
+        padding-left: 1.7rem;
+        padding-right: 4.1rem;
+    }
+
+    @include hover {
+        background-color: $c-brand-primary;
+    }
+
+    .news-content & {
+        max-width: 36.25rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 4rem;
+
+        @include media('>=largescreen') {
+            margin-bottom: 5.375rem;
+        }
+
+        &:not(:first-child) {
+            margin-top: 6rem;
+
+            @include media('>=largescreen') {
+                margin-top: 7.375rem;
+            }
+        }
+    }
+
+    .download__btn,
+    .icon-pdf,
+    .icon-download {
+        flex: 0 0 1em;
+        width: 1em;
+        height: 1em;
+    }
+
+    .icon-pdf {
+        @include adaptive-font(30, 72);
+        align-self: flex-start;
+        position: absolute;
+        left: 1.85rem;
+        top: 1.75rem;
+    }
+
+    .download__btn,
+    .icon-download {
+        @include adaptive-font(28, 43);
+        display: block;
+    }
+
+    .download__txt {
+        margin-left: 20%;
+        margin-bottom: 4rem;
+
+        @include media('>=largescreen') {
+            margin-bottom: 8.125rem;
+        }
+    }
+}
+
+.download__btn-holder {
+    width: 100%;
+}
+
+.download__btn {
+    padding: 0;
+    background-color: transparent;
+    margin-top: 1.5rem;
+    transition: var(--default-transition);
+    margin-left: auto;
+    margin-right: auto;
+    color: currentColor;
+
+    @include hover {
+        color: inherit;
+        transform: translateY(.2rem);
+    }
+}
+
+.download--sm {
+    @include adaptive-font(18, 24);
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    padding-bottom: 1.125rem;
+
+    @include media('>=tablet') {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .icon-pdf {
+        @include media('<tablet') {
+            @include adaptive-font(32);
+            left: 1.125rem;
+        }
+    }
+
+    .download__txt {
+        margin-left: 17%;
+        margin-right: 10%;
+        margin-bottom: 5rem;
+    }
+
+    .news-tags__item {
+        background-color: rgba($c-bg-primary, .25);
+        color: $c-font-tertiary;
+        height: 1.5rem;
+    }
+
+    .download__btn,
+    .icon-download {
+        @include adaptive-font(24, 43);
+        margin-top: 0;
+    }
+}
+
+.download--xs {
+    @include adaptive-font(18, 24);
+    padding: 1.425rem 1.6rem .5rem;
+
+    .icon-pdf {
+        @include adaptive-font(32, 56);
+        top: 1.425rem;
+        left: 1.325rem;
+    }
+
+    .download__txt {
+        margin-left: 3rem;
+        margin-right: 15%;
+        margin-bottom: 2.65rem;
+
+        @include media('>=tablet') {
+            margin-left: 14.6%;
+        }
+    }
+
+    .news-tags__item {
+        background-color: rgba($c-bg-primary, .25);
+        color: $c-font-tertiary;
+        height: 1.5rem;
+    }
+
+    .download__btn,
+    .icon-download {
+        @include adaptive-font(24);
+        margin-top: 0;
+    }
+}
+
+.download__btm {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .download__btn {
+        margin-right: 0;
+        margin-bottom: .5rem;
+    }
+}

@@ -1,0 +1,72 @@
+.single-img {
+    margin-bottom: 5rem;
+
+    @include media('>=tablet') {
+        display: flex;
+        justify-content: center;
+    }
+
+    @include media('>=desktop') {
+        padding-left: var(--side-gutters);
+        padding-right: var(--side-gutters);
+    }
+
+    @include media('>=widescreen') {
+        margin-bottom: 7.0625rem;
+    }
+
+    img {
+        width: 100%;
+        border-radius: var(--brand-bd-radius);
+    }
+}
+
+.full-width-img {
+    margin-top: 2rem;
+    margin-bottom: 3.75rem;
+
+    @include media('>=tablet') {
+        padding-left: var(--side-gutters-xs);
+        padding-right: var(--side-gutters-xs);
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: var(--brand-bd-radius);
+    }
+}
+
+.pictures-cols {
+    --pictures-offset: 1.5rem;
+
+    padding-left: calc(var(--side-gutters-sm) - var(--pictures-offset) / 2);
+    padding-right: calc(var(--side-gutters-sm) - var(--pictures-offset) / 2);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    @include media('>=tablet') {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @include media('>=desktop') {
+        margin-top: 3rem;
+        margin-bottom: 2.25rem;
+    }
+}
+
+.pictures-cols__img {
+    @include media('>=tablet') {
+        flex-shrink: 0;
+        max-width: calc(50% - var(--pictures-offset));
+        flex-basis: calc(50% - var(--pictures-offset));
+        margin-left: calc(var(--pictures-offset) / 2);
+        margin-right: calc(var(--pictures-offset) / 2);
+    }
+
+    img {
+        width: 100%;
+        border-radius: var(--brand-bd-radius);
+    }
+}

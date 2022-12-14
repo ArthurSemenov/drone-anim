@@ -1,0 +1,49 @@
+.banner-text {
+    position: relative;
+
+    @include media('<tablet') {
+        padding-bottom: 8.7rem;
+    }
+}
+
+.banner-text__ttl {
+    @include el-fade-in;
+    @include adaptive-font(34, 64);
+    font-weight: inherit;
+    position: absolute;
+    max-width: 90vw;
+    left: var(--side-gutters-md);
+    transition-property: transform, opacity;
+    z-index: 2;
+
+    @include media('<tablet') {
+        bottom: 0;
+    }
+
+    @include media('>=tablet') {
+        top: 50%;
+        transform: translateY(-50%) skew(-10deg);
+        max-width: 41.459vw;
+
+        &.is-inview {
+            transform: translateY(-50%) skew(0);
+        }
+    }
+
+    strong,
+    mark {
+        color: $c-brand-primary;
+        background-color: transparent;
+    }
+}
+
+.banner-text__img {
+    display: block;
+    margin-left: auto;
+    max-width: 100%;
+
+    @include media('<phone') {
+        min-width: 150%;
+        margin-left: -50%;
+    }
+}

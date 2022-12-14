@@ -1,0 +1,56 @@
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include size(10px, 10px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 99;
+    transition: opacity var(--default-transition), visibility var(--default-transition);
+    &.gallery-swipe,
+    &.timeline-prev,
+    &.timeline-next {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity var(--default-transition), visibility var(--default-transition);
+    }
+    &.timeline-prev,
+    &.timeline-next {
+        .custom-cursor__icon {
+            display: block;
+        }
+    }
+    &.timeline-next {
+        .custom-cursor__icon {
+            transform: rotate(-90deg);
+            transition: transform .5s ease;
+        }
+    }
+    &.timeline-prev {
+        .custom-cursor__icon {
+            transform: rotate(90deg);
+            transition: transform .5s ease;
+        }
+    }
+
+    &__inner {
+        transition: transform .45s cubic-bezier(.10, .10, .25, .90);
+        .gallery-swipe & {
+            &:before {
+                @include adaptive-font(44, 100);
+                position: absolute;
+                content: 'Drag';
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &__icon {
+        display: none;
+        @include size(6.25rem, 6.25rem);
+        fill: $c-font-primary;
+        transition: transform .5s ease;
+    }
+}

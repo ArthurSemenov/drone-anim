@@ -1,0 +1,193 @@
+.program-loaner {
+    padding-left: var(--side-gutters-sm);
+    padding-right: calc(var(--side-gutters-sm) - 3rem);
+    padding-bottom: 4.1875rem;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.program-loaner__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.program-loaner__ttl {
+    max-width: 35.875rem;
+    margin-bottom: 4.875rem;
+
+    span, mark {
+        color: $c-brand-primary;
+    }
+}
+
+.program-loaner__cols {
+    --program-box-offset: .5625rem;
+    --program-box-width: 11.375rem;
+    --program-col-offset: 1.625rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-left: calc(var(--program-col-offset) / -2);
+    margin-right: calc(var(--program-col-offset) / -2);
+}
+
+.program-loaner__col {
+    margin-left: calc(var(--program-col-offset) / 2);
+    margin-right: calc(var(--program-col-offset) / 2);
+
+    @include media('>=widescreen') {
+        flex-basis: calc(50% - var(--program-col-offset));
+        max-width: calc(50% - var(--program-col-offset));
+    }
+
+    &.is-inview {
+        .icon-double-arrow {
+            opacity: 1;
+        }
+    }
+
+    .icon-double-arrow {
+        @include adaptive-font(60, 72);
+        display: block;
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+        margin-left: calc(var(--program-box-width) + var(--program-box-offset) / 2 + 4.0625rem);
+
+        transition: 1s cubic-bezier(.1,.7,.1,1.41);
+        transition-delay: calc(var(--anim-default-delay) * 2.5);
+        opacity: 0;
+    }
+}
+
+.program-loaner-item {
+    display: flex;
+    margin-left: calc(var(--program-box-offset) / -2);
+    margin-right: calc(var(--program-box-offset) / -2);
+    transition: 1.5s cubic-bezier(.1,.7,.1,1.41);
+    transition-delay: var(--anim-default-delay);
+    opacity: 0;
+
+    &.--warning {
+        transform: translateY(75%);
+
+        .is-inview & {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    &.--right {
+        transform: translateY(-75%);
+
+        @include media('>=phone') {
+            justify-content: flex-end;
+        }
+
+        .is-inview & {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+.body-arrow {
+    fill: $c-bg-primary;
+}
+
+.stroke-arrow {
+    fill: $c-bg-secondary;
+}
+
+.program-loaner-item__box {
+    background-color: #2f2d2e;
+    border-radius: 2.375rem;
+    max-width: 45%;
+    flex-basis: var(--program-box-width);
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 1.25rem;
+    position: relative;
+    min-height: 13.875rem;
+    margin-left: calc(var(--program-box-offset) / 2);
+    margin-right: calc(var(--program-box-offset) / 2);
+    margin-bottom: 0;
+
+    @include media('>=phone') {
+        max-width: var(--program-box-width);
+    }
+
+    &.--icon {
+        align-items: center;
+    }
+
+    &.--ttl {
+        @include adaptive-font(20, 22);
+        line-height: 1.364;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0;
+    }
+
+    .icon-drones {
+        @include adaptive-font(120, 142);
+    }
+
+    img.icon-drones {
+        max-width: 100%;
+
+        @include media('>=phone') {
+            max-width: 8.875rem;
+        }
+    }
+}
+
+.program-loaner-item__status {
+    background-color: rgba(#139b6a, .9);
+    width: 1.4375rem;
+    height: 1.4375rem;
+    border-radius: 50%;
+    font-weight: 700;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .--warning & {
+        background-color: rgba(189, 44, 70, 0.9);
+    }
+
+    .icon {
+        font-size: .85em;
+    }
+}
+
+.program-loaner__txt {
+    @include adaptive-font(18, 20);
+    margin-top: 2rem;
+
+    @include media('>=desktop') {
+        position: relative;
+        padding-left: calc(8.75vw + 2.25rem);
+
+        &:before {
+            content: '';
+            width: 8.75vw;
+            height: 1px;
+            background-color: rgba($c-font-secondary, .21);
+            position: absolute;
+            left: 0;
+            top: 1rem;
+        }
+    }
+
+    p {
+        margin-bottom: 2.4375rem;
+    }
+}

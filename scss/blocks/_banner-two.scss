@@ -1,0 +1,103 @@
+.banner-two {
+    padding: 2rem 0 63px;
+    @include media('<tablet') { padding-top: 1rem; }
+
+    &__inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &:before,
+        &:after {
+            position: absolute;
+            content: '';
+            left: 50%;
+            transform: translate3d(-50%, 0, 0);
+            @include size(2px, 23px);
+            background-color: $c-bg-secondary;
+        }
+        &:before {
+            top: 0;
+        }
+        &:after {
+            bottom: 0;
+        }
+    }
+
+    &__items {
+        position: relative;
+        width: 100%;
+        cursor: none;
+        padding: 3rem 0;
+        margin-bottom: 1.25rem;
+
+        @include media('>=tablet') { display: flex; }
+    }
+
+    &__item {
+        width: 50%;
+        @include media('<tablet') { width: 83.6%; }
+        &:nth-child(1),
+        &:nth-child(2) {
+            .banner-two__item-inner {
+                clip-path: inset(0 0 100% 0);
+            }
+            &.is-inview {
+                .banner-two__item-inner {
+                    clip-path: inset(0 0 0 0);
+                    transition: clip-path 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+                }
+
+                .banner-two__item-img {
+                    transform: scale(1);
+                    transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+                }
+            }
+        }
+        &:nth-child(2) {
+            &.is-inview {
+                .banner-two__item-inner {
+                    @include media('>=tablet') {
+                        transition-delay: .1s;
+                    }
+                }
+            }
+        }
+        &:nth-child(even) {
+            margin-top: 3.625rem;
+            @include media('>=desktop') { margin-top: 5.625rem; }
+
+            .banner-two__item-img-wrap {
+                &:before {
+                    padding-bottom: 107.15%;
+                }
+            }
+        }
+    }
+
+    &__item-inner {
+        position: relative;
+        overflow: hidden;
+        transition: clip-path 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &__item-img-wrap {
+        @include img-wrap($c-bg-primary, 115.278%);
+    }
+
+    &__item-img {
+        transform: scale(1.2);
+        transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &__btn {
+        opacity: 0;
+        transform: scale(0.5);
+        transition: opacity .4s ease, transform .5s ease, border var(--default-transition);
+        .is-inview & {
+            opacity: 1;
+            transform: scale(1  );
+            transition: opacity .4s ease, transform .5s ease, border var(--default-transition);
+        }
+    }
+}

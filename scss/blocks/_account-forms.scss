@@ -1,0 +1,217 @@
+%account-form-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 25.875rem;
+}
+
+.mp_wrapper {
+    &:not(.mepr-not-align) {
+        @extend %account-form-wrap;
+    }
+}
+
+.mepr-nav-item {
+    @include adaptive-font(24, 32);
+    display: inline-flex;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+#mepr-account-welcome-message {
+    p {
+        @extend h3;
+    }
+}
+
+.mp-form-row {
+    margin-bottom: 2.3rem;
+}
+
+.mp-form-label {
+    @include adaptive-font(12, 12);
+    font-family: $font-secondary;
+    font-weight: 200;
+    color: $c-font-secondary;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.button-primary,
+.mepr-submit {
+    @extend .btn-primary;
+}
+
+.header + .login,
+.header + .mp_wrapper {
+    @include media('<desktop') {
+        padding-top: 5rem;
+    }
+}
+
+.login {
+    padding-bottom: 5rem;
+
+    @include media('<tablet') {
+        padding-left: var(--side-gutters-xs);
+        padding-right: var(--side-gutters-xs);
+    }
+}
+
+.login__img {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    max-height: 100vh;
+    overflow: hidden;
+    height: 100%;
+    width: 64.306vw;
+
+    img {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
+
+    & + .login__holder {
+        @extend %account-form-wrap;
+
+        @include media('>=tablet') {
+            margin-left: 20.417vw;
+        }
+
+        .login__head {
+            text-align: left;
+        }
+
+        .login-form {
+            margin-left: auto;
+        }
+    }
+}
+
+.login__head {
+    @include adaptive-font(20, 34);
+    text-align: center;
+    margin-bottom: 2rem;
+
+    @include media('>=desktop') {
+        margin-bottom: 4.375rem;
+    }
+}
+
+.login__ttl {
+    margin-bottom: 2rem;
+}
+
+.login-form {
+    @extend %account-form-wrap;
+}
+
+.login-form__ttl-sm {
+    @include adaptive-font(28, 34);
+    margin-bottom: 4rem;
+}
+
+.mepr_error,
+.mepr-unauthorized-message {
+    @include adaptive-font(20, 22);
+    max-width: 25.875rem;
+    margin-bottom: 4rem;
+
+    .page-wrap > & {
+        @extend %account-form-wrap;
+    }
+
+    a {
+        color: $c-brand-primary;
+    }
+}
+
+.mepr_error {
+    color: red;
+}
+
+.mepr-login-actions {
+    margin-bottom: 2.75rem;
+}
+
+#mepr-account-welcome-message,
+.mp_wrapper.mepr-account-nav {
+    display: none;
+}
+
+.mepr_updated {
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+
+    .icon-warning {
+        margin-right: .5rem;
+    }
+}
+
+
+/* Profile */
+.profile {
+    padding-top: 1.75rem;
+
+    @include media('>=tablet') {
+        padding-top: 2.1875rem;
+    }
+
+    > .mp_wrapper {
+        .mepr_error {
+            margin-left: 0;
+            max-width: none;
+        }
+    }
+
+    .mepr-account-form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 25.875rem;
+        min-width: 0;
+    }
+
+    .mp-form-row {
+        @include media('>=desktop') {
+            max-width: 9.8125rem;
+            flex-basis: 9.8125rem;
+        }
+    }
+}
+
+
+.mepr-account__cta {
+    width: 100%;
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+
+    .mepr-submit {
+        margin-right: 1.5rem;
+    }
+}
+
+.mepr-account__cta-or {
+    margin-right: .5em;
+}
+
+.mepr-account-change-password {
+    @include adaptive-font(16);
+}
+
+.mepr-already-logged-in {
+    a {
+        @include link-double-underline(.3s);
+        @include hover-color($c-brand-primary);
+    }
+}

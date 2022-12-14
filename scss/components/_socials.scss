@@ -1,0 +1,43 @@
+.social {
+    &.social-framed {
+        backdrop-filter: blur(14.0199px);
+        border: 1px solid rgba(234, 230, 227, 0.17);
+        border-radius: 0.625rem;
+        padding: 0.875rem 0.8125rem;
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__item {
+        font-size: 0;
+        line-height: 0;
+        &:not(:last-child) {
+            margin-right: 0.5625rem;
+            .social-min & {
+                margin-right: 0.25rem;
+            }
+        }
+
+        @include hover() {
+            .social__item-icon {
+                fill: $c-brand-primary;
+                transition: fill .7s ease;
+            }
+        }
+    }
+
+    &__item-icon {
+        display: block;
+        fill: $c-bg-secondary;
+        @include size(1.43755rem, 1.4375rem);
+        transition: fill .7s ease;
+        .social-min & {
+            @include size(1.125rem, 1.125rem);
+        }
+    }
+}

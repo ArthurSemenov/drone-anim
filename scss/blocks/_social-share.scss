@@ -1,0 +1,36 @@
+.social-share--horizontal {
+    .social-share {
+        display: flex;
+    }
+
+    .social-share__item {
+        margin-bottom: 0;
+
+        &:not(:first-child) {
+            margin-left: 1.25rem;
+        }
+    }
+}
+
+.social-share__item {
+    line-height: 0;
+    font-size: 0;
+    margin-bottom: .5625rem;
+}
+
+.social-share__item-link {
+    color: $c-font-primary;
+    transition: color .27s;
+
+    @include hover {
+        color: $c-brand-primary;
+    }
+}
+
+.social-share__item-icon {
+    @include adaptive-font(17, 40);
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    border-radius: 50%;
+}

@@ -1,0 +1,89 @@
+.where-buy {
+    --where-buy-offset: 1.5rem;
+    padding: 3.35rem var(--side-gutters-md) 2rem;
+
+    @include media('>=tablet') {
+        padding-bottom: 4.7rem;
+    }
+}
+
+.where-buy__ttl {
+    //@include el-fade-up;
+    @include adaptive-font(34, 64);
+    margin-bottom: 4.625rem;
+
+    .--alt & {
+        @include adaptive-font(19, 37);
+        margin-bottom: 1.8rem;
+    }
+}
+
+.where-buy-items {
+    overflow: hidden;
+    padding-right: 1px;
+
+    &:not(.swiper-initialized) & {
+        margin-left: calc(var(--where-buy-offset) / -2);
+        margin-right: calc(var(--where-buy-offset) / -2);
+    }
+}
+
+.where-buy-item {
+    @include anim-appearance-shift;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1.5rem 2.2rem;
+    border: 1px solid $c-brand-primary;
+    backdrop-filter: blur(1.25rem);
+    border-radius: var(--brand-bd-radius-xl);
+    min-height: 220px;
+    color: $c-font-primary;
+    transition: var(--default-transition);
+
+    .where-buy-items:not(.swiper-initialized) & {
+        max-width: calc(33.33% - var(--where-buy-offset));
+        flex: calc(33.33% - var(--where-buy-offset));
+        margin-left: calc(var(--where-buy-offset) / 2);
+        margin-right: calc(var(--where-buy-offset) / 2);
+    }
+
+    @include hover {
+        background-color: $c-brand-primary;
+        color: $c-font-tertiary;
+    }
+}
+
+.where-buy-item__icon {
+    svg,
+    img {
+        max-height: 45px;
+        max-width: 100%;
+    }
+
+    svg * {
+        fill: currentColor;
+    }
+}
+
+.where-buy-item__btn {
+    margin-top: auto;
+
+    @include hover {
+        color: currentColor;
+    }
+}
+
+.where-buy__nav {
+    padding-top: 4.6rem;
+    display: flex;
+    justify-content: center;
+
+    .is-disabled ~ & {
+        display: none;
+    }
+}
+
+.where-buy__nav-btn {
+    margin-left: .3rem;
+    margin-right: .3rem;
+}

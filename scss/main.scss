@@ -1,0 +1,36 @@
+@import "vendor/reset";
+@import "vendor/include-media";
+//@import "vendor/fullpage.min";
+@import "vendor/locomotive-scroll";
+@import "vendor/image-compare-viewer.min";
+@import "vendor/swiper-bundle.min";
+
+@import "core/fonts";
+@import "core/mixins";
+@import "core/variables";
+
+@import "components/typography";
+@import "components/buttons";
+@import "components/socials";
+@import "components/forms";
+@import "components/links";
+
+@import "blocks/banner-product";
+@import "blocks/modal";
+
+@import "layout/layout";
+@import "layout/header";
+@import "layout/footer";
+
+@import "product-lemur-2/product-loader";
+@import "product-lemur-2/product-header";
+@import "product-lemur-2/product-canvas";
+@import "product-lemur-2/product-anim";
+@import "product-lemur-2/product-content";
+@import "product-lemur-2/product-screens";
+@import "product-lemur-2/product-schedule-demo";
+@import "product-lemur-2/product-where-to-buy";
+@import "product-lemur-2/product-services";
+
+@import "blocks/locations";
+@import "blocks/modal";
